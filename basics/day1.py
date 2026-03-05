@@ -1,6 +1,7 @@
-# asks the user for a number
-# prints numbers from 1 to that number
-# tells whether the number is even or odd
+# Day 1
+# Script that asks the user for a number,
+# prints numbers from 1 to N
+# and marks them as even or odd.
 
 while True:
     number = input("Provide a number: ")

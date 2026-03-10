@@ -1,0 +1,66 @@
+{
+    "results": [
+        {
+            "gender": "female",
+            "name": {
+                "title": "Mrs",
+                "first": "Socorro",
+                "last": "Fuentes"
+            },
+            "location": {
+                "street": {
+                    "number": 8191,
+                    "name": "Callej\u00f3n Chiapas"
+                },
+                "city": "La Ciudad",
+                "state": "Oaxaca",
+                "country": "Mexico",
+                "postcode": 49884,
+                "coordinates": {
+                    "latitude": "23.1898",
+                    "longitude": "7.9801"
+                },
+                "timezone": {
+                    "offset": "+11:00",
+                    "description": "Magadan, Solomon Islands, New Caledonia"
+                }
+            },
+            "email": "socorro.fuentes@example.com",
+            "login": {
+                "uuid": "e58fd369-72d7-4089-b119-9192410652dd",
+                "username": "organiclion208",
+                "password": "babyface",
+                "salt": "k2EaFJRe",
+                "md5": "5786682e0236b010bfdd46b65555b380",
+                "sha1": "83f8d651b4fc2f917aba85c1bd357e52cfc7255d",
+                "sha256": "a59cba7ac2983f2ed90e2204d4ab74dc9b32a8781115518bc964148c7130ff7c"
+            },
+            "dob": {
+                "date": "1976-09-27T14:37:34.347Z",
+                "age": 49
+            },
+            "registered": {
+                "date": "2005-04-08T16:59:07.346Z",
+                "age": 20
+            },
+            "phone": "(600) 331 8817",
+            "cell": "(691) 186 1671",
+            "id": {
+                "name": "NSS",
+                "value": "12 19 27 4601 9"
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/28.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/28.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/28.jpg"
+            },
+            "nat": "MX"
+        }
+    ],
+    "info": {
+        "seed": "d885821a2665c85a",
+        "results": 1,
+        "page": 1,
+        "version": "1.4"
+    }
+}

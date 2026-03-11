@@ -5,9 +5,8 @@
 
 import csv
 import requests
-import json
 
-def find_user_by_name():
+def return_random_user():
     url = "https://randomuser.me/api/"
 
     response = requests.get(url)
@@ -32,13 +31,15 @@ def find_user_by_name():
 
 
 try:
-    with open("users.csv", "r") as names, open("user_details.csv", "w") as user_details:
+    with open("users.csv", "r", encoding = "utf-8") as names, \
+         open("user_details.csv", "w", encoding = "utf-8") as user_details:
+        
         csvreader = csv.DictReader(names)
         csvwriter = csv.DictWriter(user_details, fieldnames = csvreader.fieldnames + ["gender", "email", "city"], lineterminator = "\n")
 
         csvwriter.writeheader()
         for row in csvreader:
-            user_info = find_user_by_name()
+            user_info = return_random_user()
             row.update(user_info)
             csvwriter.writerow(row)
                                    

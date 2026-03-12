@@ -29,24 +29,27 @@ def return_random_user():
         print(f'Failed to return data, status code: {response.status_code}')
         exit()
 
+def process_users():
+    try:
+        with open("users.csv", "r", encoding = "utf-8") as names, \
+            open("user_details.csv", "w", encoding = "utf-8", newline = "") as user_details:
+            
+            csvreader = csv.DictReader(names)
+            csvwriter = csv.DictWriter(user_details, fieldnames = csvreader.fieldnames + ["gender", "email", "city"], lineterminator = "\n")
 
-try:
-    with open("users.csv", "r", encoding = "utf-8") as names, \
-         open("user_details.csv", "w", encoding = "utf-8") as user_details:
-        
-        csvreader = csv.DictReader(names)
-        csvwriter = csv.DictWriter(user_details, fieldnames = csvreader.fieldnames + ["gender", "email", "city"], lineterminator = "\n")
+            csvwriter.writeheader()
+            for row in csvreader:
+                user_info = return_random_user()
+                row.update(user_info)
+                csvwriter.writerow(row)
+                                    
+    except FileNotFoundError:
+        print("File doesn't exist")
+    except IOError:
+        print("Failed to write data to file")
 
-        csvwriter.writeheader()
-        for row in csvreader:
-            user_info = return_random_user()
-            row.update(user_info)
-            csvwriter.writerow(row)
-                                   
-except FileNotFoundError:
-    print("File doesn't exist")
-except IOError:
-    print("Failed to write data to file")
+if __name__ == "__main__":
+    process_users()
 
 
 

@@ -22,7 +22,7 @@ months = {
 }
 
 files = [
-    f for f in os.listdir("test_files_merger")
+    f for f in os.listdir("test_files")
     if f.startswith("sales_")
 ]
 #print(f"\n{files}")
@@ -31,13 +31,13 @@ files = sorted(files, key = lambda f: months[f.split("_")[1].split(".")[0]])
 #print(f"\n{files}")
 
 try:
-    with open("test_files_merger/merged_sales.csv", "w") as merged_sales:
+    with open("test_files/merged_sales.csv", "w") as merged_sales:
         csvwriter = csv.DictWriter(merged_sales, fieldnames = ["date", "product", "quantity", "price"], lineterminator = "\n")
         csvwriter.writeheader()
         for file in files:
             name, extension = os.path.splitext(file)
             if extension == ".csv":
-                with open(f"test_files_merger/{file}", "r") as monthly_sales:
+                with open(f"test_files/{file}", "r") as monthly_sales:
                     csvreader = csv.DictReader(monthly_sales)
                     for row in csvreader:
                         csvwriter.writerow(row)

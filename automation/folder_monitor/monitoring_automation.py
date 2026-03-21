@@ -8,8 +8,8 @@ import os
 import csv
 import time
 
-monitor_path = "test_files_monitor/monitor"
-clean_path = "test_files_monitor/clean"
+monitor_path = "test_files/monitor"
+clean_path = "test_files/clean"
 processed_files = set()
 
 

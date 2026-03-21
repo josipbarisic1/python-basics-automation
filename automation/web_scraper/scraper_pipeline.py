@@ -72,7 +72,7 @@ def process_data(data):
 
 def save_data(data):
     try:
-        with open("test_files_extractor/clean_books.csv", "w", encoding="utf-8-sig") as file:
+        with open("test_files/clean_books.csv", "w", encoding="utf-8-sig") as file:
             writer = csv.DictWriter(
                 file,
                 fieldnames=["title", "price", "rating", "available"],

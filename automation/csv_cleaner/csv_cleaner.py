@@ -5,7 +5,7 @@
 
 import csv
 
-path = "test_files_cleaner"
+path = "test_files"
 
 def clean_csv():
     try:

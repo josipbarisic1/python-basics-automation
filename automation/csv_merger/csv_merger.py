@@ -5,6 +5,7 @@
 
 import os
 import csv
+import argparse
 
 months = {
     "january":1,
@@ -21,9 +22,19 @@ months = {
     "december":12
 }
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--input", help = "Path to input CSV file")
+parser.add_argument("--output",  help = "Path to output CSV file")
+args = parser.parse_args()
+
+BASE_DIR = os.path.dirname(__file__)
+folder_fallback = os.path.join(BASE_DIR, "test_files")
+writer_fallback = os.path.join(BASE_DIR, "test_files/merged_sales.csv")
+
+folder_path = args.input if args.input else folder_fallback
 files = [
-    f for f in os.listdir("test_files")
-    if f.startswith("sales_")
+    f for f in os.listdir(folder_path)
+    if f.endswith(".csv") and f.startswith("sales_")
 ]
 #print(f"\n{files}")
 
@@ -31,21 +42,27 @@ files = sorted(files, key = lambda f: months[f.split("_")[1].split(".")[0]])
 #print(f"\n{files}")
 
 try:
-    with open("test_files/merged_sales.csv", "w") as merged_sales:
+    output_path = args.output if args.output else writer_fallback
+    with open(output_path, "w", encoding = "utf-8", newline = "") as merged_sales:
+        print(f"[INFO] Reading from: {folder_path}")
+        print(f"[INFO] Writing to: {output_path}")
         csvwriter = csv.DictWriter(merged_sales, fieldnames = ["date", "product", "quantity", "price"], lineterminator = "\n")
         csvwriter.writeheader()
         for file in files:
             name, extension = os.path.splitext(file)
             if extension == ".csv":
-                with open(f"test_files/{file}", "r") as monthly_sales:
+                file_path = os.path.join(folder_path, file)
+                with open(file_path, "r", encoding = "utf-8") as monthly_sales:
                     csvreader = csv.DictReader(monthly_sales)
                     for row in csvreader:
                         csvwriter.writerow(row)
 
+    print("[SUCCESS] CSV files merged successfully")
+
 except FileNotFoundError:
-    print("File doesn't exist")
+    print("[ERROR] File doesn't exist")
 except IOError:
-    print("Failed to write data to file")
+    print("[ERROR] Failed to write data to file")
             
 
 

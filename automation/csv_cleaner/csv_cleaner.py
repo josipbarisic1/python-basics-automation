@@ -18,13 +18,11 @@ writer_fallback = os.path.join(BASE_DIR, "test_files/users_clean.csv")
 
 def clean_csv():
     try:
-        if not args.input:
-            args.input = reader_fallback
-        if not args.output:
-            args.output = writer_fallback
-        with open(args.input, "r", encoding = "utf-8") as users_messy, open(args.output, "w", encoding = "utf-8") as users_clean:
-            print(f"[INFO] Reading from: {args.input}")
-            print(f"[INFO] Writing to: {args.output}")
+        input_path = args.input if args.input else reader_fallback
+        output_path = args.output if args.output else writer_fallback
+        with open(input_path, "r", encoding = "utf-8") as users_messy, open(output_path, "w", encoding = "utf-8", newline = "") as users_clean:
+            print(f"[INFO] Reading from: {input_path}")
+            print(f"[INFO] Writing to: {output_path}")
             csvreader = csv.DictReader(users_messy)
             csvwriter = csv.DictWriter(users_clean, fieldnames = csvreader.fieldnames, lineterminator = "\n")
 

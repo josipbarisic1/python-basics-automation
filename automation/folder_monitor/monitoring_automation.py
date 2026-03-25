@@ -26,8 +26,6 @@ clean_path = args.output if args.output else writer_fallback
 interval = args.interval if args.interval else 5
 
 def check_new_files():
-
-    
     files = os.listdir(monitor_path)
     new_files = []
     for file in files:

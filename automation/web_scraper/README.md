@@ -3,7 +3,7 @@ Web Scraper
 Scrapes book data from books.toscrape.com and exports it to CSV.
 
 How to run:
-python scraper_pipeline.py
+python web_scraper/scraper_pipeline.py
 
 What it does:
 - Scrapes 5 pages of books

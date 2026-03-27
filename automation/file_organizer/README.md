@@ -3,7 +3,7 @@ File Organizer
 Scans a folder and automatically organizes files into subfolders by type.
 
 How to run:
-python file_organizer.py
+python file_organizer/file_organizer.py
 
 Input:
 Place files in test_files/

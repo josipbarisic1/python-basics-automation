@@ -19,5 +19,8 @@ Web scraping pipeline that extracts and processes data from websites.
 folder_monitor/
 Monitors a folder for new CSV files and automatically processes them.
 
+api_fetcher/
+Fetches data from APIs and saves it in CSV format.
+
 
 Each folder contains a standalone automation tool with its own README and test files.

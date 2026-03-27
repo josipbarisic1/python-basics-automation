@@ -1,4 +1,4 @@
-# Day 9
+# CSV MERGER
 # Script that reads multiple CSV files
 # merges them
 # and outputs a combined dataset.

@@ -1,4 +1,4 @@
-# Day 10
+# CSV CLEANER
 # Script that cleans messy CSV data
 # removes duplicates
 # and standardizes formatting.

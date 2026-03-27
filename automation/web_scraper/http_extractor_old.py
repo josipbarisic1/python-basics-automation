@@ -1,4 +1,4 @@
-# Day 11
+# HTTP EXTRACTOR
 # Script that scrapes data from a webpage
 # extracts specific fields
 # and saves results to CSV.

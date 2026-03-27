@@ -1,4 +1,4 @@
-# Day 12
+# WEB SCRAPPER
 # Refactored automation script that separates
 # scraping, processing and exporting logic.
 

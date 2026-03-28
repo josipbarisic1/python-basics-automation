@@ -18,7 +18,11 @@ writer_fallback = os.path.join(BASE_DIR, "test_files/users_api.csv")
 
 api = "https://jsonplaceholder.typicode.com/users"
 users_path = args.output if args.output else writer_fallback
-limit = args.limit if args.limit else 10
+
+if args.limit is None:
+    limit = 10
+else:
+    limit = args.limit
 if limit <= 0:
     print("[ERROR] Limit must be greater than 0")
     exit()
@@ -26,13 +30,25 @@ if limit <= 0:
 def fetch_data():
 
     data = []
-    response = requests.get(api)
+    try:
+        response = requests.get(api, timeout = 5)
+    except requests.exceptions.RequestException as e:
+        print(f"[ERROR] Request failed: {e}")
+        exit()
 
     if response.status_code != 200:
-        print(f"Failed request: {response.status_code}")
+        print(f"[ERROR] Failed request: {response.status_code}")
         exit()
     else:
-        data = response.json()
+        try:
+            data = response.json()
+        except ValueError:
+            print("[ERROR] Failed to parse JSON response")
+            exit()
+
+        if not isinstance(data, list):
+            print("[ERROR] Unexpected API format")
+            exit()
         fetched_users = data[:limit]
 
     return fetched_users
@@ -41,10 +57,20 @@ def process_data(fetched_users):
 
     processed_users = []
     for user in fetched_users:
-        name = user["name"]
-        email = user["email"]
-        company = user["company"]["name"]
-        city = user["address"]["city"]
+        if not isinstance(user, dict):
+            print("[ERROR] Skipping invalid user entry")
+            continue
+
+        name = user.get("name", "N/A")
+
+        email = user.get("email", "[missing_email]")
+        
+        company_data = user.get("company") or {}
+        company = company_data.get("name", "")
+
+        address = user.get("address") or {}
+        city = address.get("city", "")
+
         processed_users.append({
             "name": name,
             "email": email,

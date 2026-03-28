@@ -1,6 +1,6 @@
 Folder Monitoring Automation
 
-Monitors a folder for new CSV files and automatically cleans them in real-time.
+Monitors a folder and automatically processes new CSV files.
 
 How to run:
 
@@ -11,12 +11,12 @@ Custom configuration:
 python folder_monitor/monitoring_automation.py --input path/to/monitor --output path/to/clean --interval 10
 
 Options:
---input     Path to monitored folder (default: test_files/monitor/)
---output    Path to output folder (default: test_files/clean/)
---interval  Check interval in seconds (default: 5)
+--input "Path to monitored folder (default: test_files/monitor/)"
+--output "Path to output folder (default: test_files/clean/)"
+--interval "Check interval in seconds (default: 5)"
 
 What it does:
-- Monitors specified folder at regular intervals
+- Continuously monitors a folder
 - Detects new CSV files
 - Cleans data (removes duplicates, standardizes format)
 - Saves cleaned files with _clean suffix

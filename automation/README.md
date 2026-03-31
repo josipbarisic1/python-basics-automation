@@ -2,6 +2,7 @@ Python Automation Scripts
 
 Collection of automation tools for common tasks.
 
+
 Projects:
 
 csv_cleaner/
@@ -21,6 +22,10 @@ Monitors a folder for new CSV files and automatically processes them.
 
 api_fetcher/
 Fetches data from APIs and saves it in CSV format.
+
+web_scraper_robust/
+Enhanced web scraper with retries, headers, delay and safe file output
+
 
 
 Each folder contains a standalone automation tool with its own README and test files.

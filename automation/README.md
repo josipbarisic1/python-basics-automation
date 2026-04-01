@@ -24,8 +24,9 @@ api_fetcher/
 Fetches data from APIs and saves it in CSV format.
 
 web_scraper_robust/
-Enhanced web scraper with retries, headers, delay and safe file output
+Enhanced web scraper with retries, headers, delay and safe file output.
 
-
+web_scraper_dynamic/
+Advanced scraper that automatically follows pagination.
 
 Each folder contains a standalone automation tool with its own README and test files.

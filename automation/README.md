@@ -29,4 +29,8 @@ Enhanced web scraper with retries, headers, delay and safe file output.
 web_scraper_dynamic/
 Advanced scraper that automatically follows pagination.
 
+data_pipeline/
+Complete data pipeline that scrapes, filters, enriches and exports book data.
+
+
 Each folder contains a standalone automation tool with its own README and test files.

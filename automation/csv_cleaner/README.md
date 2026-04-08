@@ -1,22 +1,18 @@
 CSV Cleaner
 
-Cleans and standardizes messy CSV data.
+Cleans messy CSV data.
 
-How to run:
+Run:
 
-Default mode:
-python csv_cleaner/csv_cleaner.py
-
-Custom input/output:
-python csv_cleaner/csv_cleaner.py --input path/to/input.csv --output path/to/output.csv
+python csv_cleaner.py
+python csv_cleaner.py --input messy.csv --output clean.csv
 
 Options:
---input "Path to input CSV file (default: test_files/users_messy.csv)"
---output "Path to output CSV file (default: test_files/users_clean.csv)"
+--input   input CSV (default: test_files/users_messy.csv)
+--output  output CSV (default: test_files/users_clean.csv)
 
 What it does:
-- Removes duplicate rows
+- Removes duplicates
 - Trims whitespace
-- Converts text to title case
+- Converts to title case
 - Standardizes formatting
-- Outputs clean, consistent CSV data

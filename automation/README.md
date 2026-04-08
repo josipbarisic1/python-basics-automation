@@ -1,36 +1,39 @@
 Python Automation Scripts
 
-Collection of automation tools for common tasks.
+Collection of automation tools.
 
 
 Projects:
 
+api_fetcher/
+Fetches data from APIs, saves to CSV.
+
 csv_cleaner/
-Cleans messy CSV data, removes duplicates, and standardizes formatting.
+Cleans CSV data, removes duplicates.
 
 csv_merger/
-Merges multiple CSV files into a single combined dataset.
+Merges multiple CSVs into one.
+
+csv_api_enricher/
+Enriches CSV data with API info.
 
 file_organizer/
-Automatically organizes files into subfolders based on file type.
-
-web_scraper/
-Web scraping pipeline that extracts and processes data from websites.
+Organizes files by type into folders.
 
 folder_monitor/
-Monitors a folder for new CSV files and automatically processes them.
+Watches folder, auto-processes new CSVs.
 
-api_fetcher/
-Fetches data from APIs and saves it in CSV format.
+web_scraper/
+Basic web scraping.
 
 web_scraper_robust/
-Enhanced web scraper with retries, headers, delay and safe file output.
+Scraper with retries, headers, delays.
 
 web_scraper_dynamic/
-Advanced scraper that automatically follows pagination.
+Scraper with automatic pagination.
 
 data_pipeline/
-Complete data pipeline that scrapes, filters, enriches and exports book data.
+Full pipeline: scrape → filter → enrich → export.
 
 
-Each folder contains a standalone automation tool with its own README and test files.
+Each folder has its own README and test files.

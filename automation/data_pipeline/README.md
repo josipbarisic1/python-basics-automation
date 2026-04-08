@@ -1,29 +1,44 @@
 Book Data Pipeline
 
-Scrapes book data, filters it based on input CSV, enriches it with API data, and exports to CSV.
+Scrapes books, filters by input CSV, enriches with API data, exports to CSV.
 
-How to run:
+Structure:
 
-Default mode:
-python data_pipeline/book_data_pipeline.py
+Refactored into modules:
+- main.py → CLI + orchestration
+- scraper.py → scraping + pagination
+- processor.py → cleaning + filtering
+- api.py → API calls
+- enricher.py → data enrichment
+- writer.py → CSV I/O
+- book_data_pipeline.py → old version (reference)
 
-Custom configuration:
-python data_pipeline/book_data_pipeline.py --input path/to/input.csv --output path/to/output.csv
+Uses logging instead of print.
+
+Setup:
+
+pip install -r requirements.txt
+
+Run:
+
+Note: Must be run from the data_pipeline/ directory.
+
+python main.py
+python main.py --input custom.csv --output result.csv
 
 Options:
---input "Path to input CSV file (default: test_files/input_books.csv)"
---output "Path to output CSV file (default: test_files/user_books.csv)"
+--input   input CSV path (default: test_files/input_books.csv)
+--output  output CSV path (default: test_files/user_books.csv)
 
 What it does:
-- Scrapes book data from books.toscrape.com
-- Handles request retries and failures
-- Automatically follows pagination
-- Cleans and filters scraped data
-- Loads input CSV with target book titles
-- Filters only matching books
-- Fetches user data from API
-- Enriches book data with random user info
-- Saves final structured data to CSV
+- Scrapes books.toscrape.com
+- Retries failed requests
+- Follows pagination automatically
+- Cleans and filters data
+- Matches against input CSV
+- Fetches users from API
+- Enriches books with user info
+- Saves to CSV
 
 Example output:
 

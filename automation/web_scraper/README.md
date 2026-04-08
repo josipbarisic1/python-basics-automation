@@ -1,18 +1,23 @@
 Web Scraper
 
-Scrapes book data from books.toscrape.com and exports it to CSV.
+Scrapes books from books.toscrape.com, exports to CSV.
 
-How to run:
-python web_scraper/scraper_pipeline.py
+Setup:
+
+pip install -r requirements.txt
+
+Run:
+
+python scraper_pipeline.py
 
 What it does:
-- Scrapes 5 pages of books
-- Filters by rating (only 4-5 stars)
+- Scrapes 5 pages
+- Filters by rating (4-5 stars)
 - Filters by price (under £20)
-- Exports clean data to CSV
+- Exports to CSV
 
 Output:
 test_files/clean_books.csv
 
 Note:
-http_extractor_old.py is the original version before refactoring.
+http_extractor_old.py is old version before refactor.

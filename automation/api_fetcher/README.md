@@ -1,27 +1,27 @@
 API Data Fetcher
 
-Fetches user data from a public API and exports it to CSV.
+Fetches user data from API, exports to CSV.
 
-How to run:
+Setup:
 
-Default mode:
-python api_fetcher/api_fetcher.py
+pip install -r requirements.txt
 
-Custom configuration:
-python api_fetcher/api_fetcher.py --output path/to/csv --limit 5
+Run:
+
+python api_fetcher.py
+python api_fetcher.py --output custom.csv --limit 5
 
 Options:
---output "Path to output file (default: test_files/users_api.csv)"
---limit "Number of users to fetch (default: 10)"
+--output  output path (default: test_files/users_api.csv)
+--limit   number of users (default: 10)
 
 What it does:
-- Fetches user data from a public API
-- Validates and sanitizes incoming data
-- Handles request failures (timeouts, connection errors)
-- Safely parses JSON responses
-- Handles missing or incomplete fields
-- Converts structured JSON into clean CSV output
-- Limits number of users (optional)
+- Fetches users from API
+- Validates data
+- Handles request failures
+- Parses JSON safely
+- Handles missing fields
+- Exports to CSV
 
 Example output:
 

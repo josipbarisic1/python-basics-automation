@@ -16,7 +16,7 @@ Python fundamentals:
 
 automation/
 Real automation tools:
-- api_fetcher - API → CSV
+- api_fetcher - API -> CSV
 - csv_cleaner - clean + dedupe
 - csv_merger - merge multiple CSVs
 - csv_api_enricher - enrich CSV with API

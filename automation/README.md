@@ -33,7 +33,7 @@ Scraper with retries, headers, delays.
 Scraper with automatic pagination.
 
 - data_pipeline/
-Full pipeline: scrape → filter → enrich → export.
+Full pipeline: scrape -> filter -> enrich -> export.
 
 
 Each folder has its own README and test files.

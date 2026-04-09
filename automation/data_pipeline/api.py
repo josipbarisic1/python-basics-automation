@@ -5,9 +5,11 @@ import sys
 
 logger = logging.getLogger(__name__)
 
-def fetch_data(api_url):
+def fetch_data(config):
+    api_url = config["url"]
+    timeout = config["timeout"]
     try:
-        response = requests.get(api_url, timeout = 5)
+        response = requests.get(api_url, timeout = timeout)
     except requests.exceptions.RequestException as e:
         logger.error(f"Request failed: {e}")
         sys.exit(1)

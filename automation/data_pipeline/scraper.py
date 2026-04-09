@@ -11,18 +11,22 @@ HEADERS = {
 }
 
 
-def scrape_data(base_url):
+def scrape_data(config):
     data = []
+    base_url = config["base_url"]
     url = base_url + "page-1.html"
     page = 1
+    max_pages = config.get("max_pages", 999)
 
-    while url:     
+    while url and page <= max_pages:     
 
         if page > 1:
-            logger.info(f"Sleeping before {page}. page...")
-            time.sleep(random.uniform(1, 3))
+            delay_min = config["delay_min"]
+            delay_max = config["delay_max"]
+            logger.info(f"Sleeping before page {page}...")
+            time.sleep(random.uniform(delay_min, delay_max))
 
-        response = _fetch_page(url, page)
+        response = _fetch_page(url, page, config)
 
         if not response:
             logger.error(f"Request failed completely for page {page}, skipping")
@@ -59,11 +63,13 @@ def scrape_data(base_url):
     logger.info(f"Scraped {len(data)} books total")
     return data
 
-def _fetch_page(url, page):
+def _fetch_page(url, page, config):
     response = None
-    for attempt in range(3):
+    retry_attempts = config["retry_attempts"]
+    timeout = config["timeout"]
+    for attempt in range(retry_attempts):
             try:
-                response = requests.get(url, headers = HEADERS, timeout = 5)
+                response = requests.get(url, headers = HEADERS, timeout = timeout)
                 response.encoding = "utf-8"
 
                 if response.status_code == 200:

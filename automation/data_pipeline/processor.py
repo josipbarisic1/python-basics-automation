@@ -2,7 +2,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def process_data(data):
+def process_data(data, config):
     processed = []
 
     for item in data:
@@ -19,7 +19,7 @@ def process_data(data):
         else:
             continue
 
-        if price >= 20:
+        if price >= config["max_price"]:
             continue
 
         processed.append({

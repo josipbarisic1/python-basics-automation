@@ -1,0 +1,21 @@
+{
+  "scraper": {
+    "base_url": "https://books.toscrape.com/catalogue/",
+    "max_pages": 50,
+    "delay_min": 1,
+    "delay_max": 3,
+    "retry_attempts": 3,
+    "timeout": 5
+  },
+  "processor": {
+    "max_price": 20
+  },
+  "api": {
+    "url": "https://jsonplaceholder.typicode.com/users",
+    "timeout": 5
+  },
+  "paths": {
+    "input": "test_files/input_books.csv",
+    "output": "test_files/user_books.csv"
+  }
+}

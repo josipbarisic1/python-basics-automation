@@ -5,13 +5,15 @@ Scrapes books, filters by input CSV, enriches with API data, exports to CSV.
 Structure:
 
 Refactored into modules:
-- main.py → CLI + orchestration
-- scraper.py → scraping + pagination
-- processor.py → cleaning + filtering
-- api.py → API calls
-- enricher.py → data enrichment
-- writer.py → CSV I/O
-- book_data_pipeline.py → old version (reference)
+- main.py -> CLI + orchestration
+- scraper.py -> scraping + pagination
+- processor.py -> cleaning + filtering
+- api.py -> API calls
+- enricher.py -> data enrichment
+- writer.py -> CSV I/O
+- config.py -> config loader
+- config.json -> all settings
+- book_data_pipeline.py -> old version (reference)
 
 Uses logging instead of print.
 
@@ -24,11 +26,12 @@ Run:
 Note: Must be run from the data_pipeline/ directory.
 
 python main.py
+python main.py --help
 python main.py --input custom.csv --output result.csv
 
 Options:
---input   input CSV path (default: test_files/input_books.csv)
---output  output CSV path (default: test_files/user_books.csv)
+--input   input CSV path (default: from config.json)
+--output  output CSV path (default: from config.json)
 
 What it does:
 - Scrapes books.toscrape.com
@@ -39,6 +42,15 @@ What it does:
 - Fetches users from API
 - Enriches books with user info
 - Saves to CSV
+- Shows books matched count
+
+Config:
+
+Edit config.json to change:
+- Scraper settings (URL, delays, retries, timeout)
+- Processor settings (max price)
+- API settings (URL, timeout)
+- Default paths
 
 Example output:
 

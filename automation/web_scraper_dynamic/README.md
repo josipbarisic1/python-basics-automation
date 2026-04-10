@@ -9,6 +9,7 @@ pip install -r requirements.txt
 Run:
 
 python dynamic_scraper.py
+python dynamic_scraper.py --help
 python dynamic_scraper.py --output custom.csv
 
 Options:
@@ -24,6 +25,7 @@ What it does:
 - Filters by rating (4-5 stars)
 - Filters by price (under £20)
 - Exports to CSV
+- Shows books scraped count
 
 Output:
 test_files/clean_books.csv

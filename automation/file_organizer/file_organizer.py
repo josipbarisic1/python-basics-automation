@@ -1,7 +1,6 @@
-# Day 8
+# FILE ORGANIZER
 # Script that scans a folder
-# renames files based on rules
-# and organizes them into subfolders.
+# and organizes files into subfolders by type
 
 import os
 import shutil
@@ -26,6 +25,7 @@ def sort_file(full_path_src, extension):
 
 def sort_test_files():
     files = os.listdir("test_files/")
+    files_moved = 0
 
     for file in files:
         full_path_src = os.path.join("test_files", file)
@@ -34,14 +34,11 @@ def sort_test_files():
             name, extension = os.path.splitext(file)
             extension = extension.lower()
             sort_file(full_path_src, extension)
+            files_moved += 1
+    
+    print(f"\n[SUCCESS] Files organized successfully")
+    print(f"  Files moved: {files_moved}")
 
 if __name__ == "__main__":
+    print("[INFO] Organizing files in test_files/...")
     sort_test_files()
-            
-
-
-                
-
-
-
-

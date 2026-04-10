@@ -6,6 +6,7 @@
 import os
 import csv
 import argparse
+import sys
 
 months = {
     "january":1,
@@ -22,10 +23,24 @@ months = {
     "december":12
 }
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--input", help = "Path to input CSV file")
-parser.add_argument("--output",  help = "Path to output CSV file")
+parser = argparse.ArgumentParser(
+    description="Merges multiple monthly CSV files into one chronologically sorted dataset"
+)
+parser.add_argument(
+    "--input",
+    help="Path to folder containing CSV files (default: test_files/)",
+    metavar="FOLDER"
+)
+parser.add_argument(
+    "--output",
+    help="Path to output merged CSV file (default: test_files/merged_sales.csv)",
+    metavar="FILE"
+)
 args = parser.parse_args()
+
+if args.input and not os.path.isdir(args.input):
+    print(f"[ERROR] Input folder not found: {args.input}")
+    sys.exit(1)
 
 BASE_DIR = os.path.dirname(__file__)
 folder_fallback = os.path.join(BASE_DIR, "test_files")
@@ -36,11 +51,10 @@ files = [
     f for f in os.listdir(folder_path)
     if f.endswith(".csv") and f.startswith("sales_")
 ]
-#print(f"\n{files}")
 
 files = sorted(files, key = lambda f: months[f.split("_")[1].split(".")[0]])
-#print(f"\n{files}")
 
+total_rows = 0
 try:
     output_path = args.output if args.output else writer_fallback
     with open(output_path, "w", encoding = "utf-8", newline = "") as merged_sales:
@@ -56,8 +70,12 @@ try:
                     csvreader = csv.DictReader(monthly_sales)
                     for row in csvreader:
                         csvwriter.writerow(row)
+                        total_rows += 1
 
-    print("[SUCCESS] CSV files merged successfully")
+    print(f"\n[SUCCESS] CSV files merged successfully")
+    print(f"  Files merged: {len(files)}")
+    print(f"  Total rows: {total_rows}")
+    print(f"  Output: {output_path}")
 
 except FileNotFoundError:
     print("[ERROR] File doesn't exist")

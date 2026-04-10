@@ -7,10 +7,22 @@ import os
 import csv
 import requests
 import argparse
+import sys
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--output", help = "Path to output file")
-parser.add_argument("--limit", type = int, help = "Number of fetched users")
+parser = argparse.ArgumentParser(
+    description="Fetches user data from API and exports to CSV"
+)
+parser.add_argument(
+    "--output",
+    help="Path to output CSV file (default: test_files/users_api.csv)",
+    metavar="FILE"
+)
+parser.add_argument(
+    "--limit",
+    type=int,
+    help="Number of users to fetch (default: 10)",
+    metavar="N"
+)
 args = parser.parse_args()
 
 BASE_DIR = os.path.dirname(__file__)
@@ -25,7 +37,7 @@ else:
     limit = args.limit
 if limit <= 0:
     print("[ERROR] Limit must be greater than 0")
-    exit()
+    sys.exit(1)
 
 def fetch_data():
 
@@ -34,21 +46,21 @@ def fetch_data():
         response = requests.get(api, timeout = 5)
     except requests.exceptions.RequestException as e:
         print(f"[ERROR] Request failed: {e}")
-        exit()
+        sys.exit(1)
 
     if response.status_code != 200:
         print(f"[ERROR] Failed request: {response.status_code}")
-        exit()
+        sys.exit(1)
     else:
         try:
             data = response.json()
         except ValueError:
             print("[ERROR] Failed to parse JSON response")
-            exit()
+            sys.exit(1)
 
         if not isinstance(data, list):
             print("[ERROR] Unexpected API format")
-            exit()
+            sys.exit(1)
         fetched_users = data[:limit]
 
     return fetched_users
@@ -92,7 +104,9 @@ def save_data(processed_users):
             for user in processed_users:
                 csvwriter.writerow(user)
 
-        print("[SUCCESS] File saved successfully")
+        print(f"\n[SUCCESS] File saved successfully")
+        print(f"  Users fetched: {len(processed_users)}")
+        print(f"  Output: {users_path}")
                                     
     except IOError:
         print("[ERROR] Failed to write data to file")

@@ -8,14 +8,38 @@ import os
 import csv
 import time
 import argparse
+import sys
 
 processed_files = set()
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--input", help = "Path to monitored folder")
-parser.add_argument("--output", help = "Path to output folder")
-parser.add_argument("--interval", type = int, help = "Check interval in seconds")
+parser = argparse.ArgumentParser(
+    description="Monitors folder for new CSV files and automatically processes them"
+)
+parser.add_argument(
+    "--input",
+    help="Path to monitored folder (default: test_files/monitor/)",
+    metavar="FOLDER"
+)
+parser.add_argument(
+    "--output",
+    help="Path to output folder (default: test_files/clean/)",
+    metavar="FOLDER"
+)
+parser.add_argument(
+    "--interval",
+    type=int,
+    help="Check interval in seconds (default: 5)",
+    metavar="N"
+)
 args = parser.parse_args()
+
+if args.input and not os.path.isdir(args.input):
+    print(f"[ERROR] Input folder not found: {args.input}")
+    sys.exit(1)
+
+if args.output and not os.path.isdir(args.output):
+    print(f"[INFO] Creating output folder: {args.output}")
+    os.makedirs(args.output, exist_ok=True)
 
 BASE_DIR = os.path.dirname(__file__)
 monitor_fallback = os.path.join(BASE_DIR, "test_files/monitor")

@@ -9,6 +9,7 @@ pip install -r requirements.txt
 Run:
 
 python api_fetcher.py
+python api_fetcher.py --help
 python api_fetcher.py --output custom.csv --limit 5
 
 Options:
@@ -22,6 +23,7 @@ What it does:
 - Parses JSON safely
 - Handles missing fields
 - Exports to CSV
+- Shows users fetched count
 
 Example output:
 

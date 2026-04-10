@@ -2,9 +2,14 @@ CSV Cleaner
 
 Cleans messy CSV data.
 
+Setup:
+
+pip install -r requirements.txt
+
 Run:
 
 python csv_cleaner.py
+python csv_cleaner.py --help
 python csv_cleaner.py --input messy.csv --output clean.csv
 
 Options:
@@ -16,3 +21,4 @@ What it does:
 - Trims whitespace
 - Converts to title case
 - Standardizes formatting
+- Shows processed row count

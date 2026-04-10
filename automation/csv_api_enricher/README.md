@@ -9,6 +9,7 @@ pip install -r requirements.txt
 Run:
 
 python csv_api_enricher.py
+python csv_api_enricher.py --help
 python csv_api_enricher.py --input basic.csv --output enriched.csv
 
 Options:
@@ -22,6 +23,7 @@ What it does:
 - Handles missing records
 - Merges data
 - Exports enriched CSV
+- Shows rows enriched count
 
 Example output:
 

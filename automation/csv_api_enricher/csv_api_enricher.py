@@ -9,11 +9,26 @@ import os
 import csv
 import requests
 import argparse
+import sys
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--input", help = "Path to input file")
-parser.add_argument("--output", help = "Path to output file")
+parser = argparse.ArgumentParser(
+    description="Enriches CSV data by matching with API user data"
+)
+parser.add_argument(
+    "--input",
+    help="Path to input CSV file (default: test_files/basic_user_info.csv)",
+    metavar="FILE"
+)
+parser.add_argument(
+    "--output",
+    help="Path to output CSV file (default: test_files/expanded_user_info.csv)",
+    metavar="FILE"
+)
 args = parser.parse_args()
+
+if args.input and not os.path.exists(args.input):
+    print(f"[ERROR] Input file not found: {args.input}")
+    sys.exit(1)
 
 BASE_DIR = os.path.dirname(__file__)
 reader_fallback = os.path.join(BASE_DIR, "test_files/basic_user_info.csv")
@@ -32,27 +47,27 @@ def load_data():
         
     except FileNotFoundError:
         print("[ERROR] File doesn't exist")
-        exit()
+        sys.exit(1)
 
 def fetch_data():
     try:
         response = requests.get(api, timeout = 5)
     except requests.exceptions.RequestException as e:
         print(f"[ERROR] Request failed: {e}")
-        exit()
+        sys.exit(1)
 
     if response.status_code != 200:
         print(f"[ERROR] Failed request: {response.status_code}")
-        exit()
+        sys.exit(1)
     try:
         data = response.json()
     except ValueError:
         print("[ERROR] Failed to parse JSON response")
-        exit()
+        sys.exit(1)
 
     if not isinstance(data, list):
         print("[ERROR] Unexpected API format")
-        exit()
+        sys.exit(1)
     return data
 
 def build_lookup(fetched_data):
@@ -112,7 +127,9 @@ def save_data(processed_users):
             for user in processed_users:
                 csvwriter.writerow(user)
 
-        print("[SUCCESS] File saved successfully")
+        print(f"\n[SUCCESS] File saved successfully")
+        print(f"  Rows enriched: {len(processed_users)}")
+        print(f"  Output: {output_path}")
                                     
     except IOError:
         print("[ERROR] Failed to write data to file")

@@ -11,6 +11,7 @@ What it does:
 - Detects file types
 - Moves files to categorized folders
 - Creates folders if needed
+- Shows files moved count
 
 Input:
 Place files in test_files/

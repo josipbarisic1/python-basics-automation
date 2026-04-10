@@ -6,11 +6,26 @@
 import os
 import csv
 import argparse
+import sys
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--input", help = "Path to input CSV file")
-parser.add_argument("--output",  help = "Path to output CSV file")
+parser = argparse.ArgumentParser(
+    description = "Cleans CSV data by removing duplicates and standardizing format"
+)
+parser.add_argument(
+    "--input",
+    help = "Path to input CSV file (default: test_files/users_messy.csv)",
+    metavar = "FILE"
+)
+parser.add_argument(
+    "--output",
+    help = "Path to output CSV file (default: test_files/users_clean.csv)",
+    metavar = "FILE"
+)
 args = parser.parse_args()
+
+if args.input and not os.path.exists(args.input):
+    print(f"[ERROR] Input file not found: {args.input}")
+    sys.exit(1)
 
 BASE_DIR = os.path.dirname(__file__)
 reader_fallback = os.path.join(BASE_DIR, "test_files/users_messy.csv")
@@ -37,7 +52,9 @@ def clean_csv():
                     set_uniques.add(tuple(row.values()))
                     csvwriter.writerow(row)
 
-        print("[SUCCESS] CSV cleaned successfully")
+        print(f"\n[SUCCESS] CSV cleaned successfully")
+        print(f"  Processed: {len(set_uniques)} unique rows")
+        print(f"  Output: {output_path}")
 
     except FileNotFoundError:
         print("[ERROR] File doesn't exist")

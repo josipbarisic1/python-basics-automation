@@ -5,6 +5,7 @@ Monitors folder, auto-processes new CSVs.
 Run:
 
 python monitoring_automation.py
+python monitoring_automation.py --help
 python monitoring_automation.py --input monitor/ --output clean/ --interval 10
 
 Options:
@@ -18,3 +19,4 @@ What it does:
 - Cleans data (removes duplicates, standardizes)
 - Saves with _clean suffix
 - Marks as processed
+- Shows processing status per file

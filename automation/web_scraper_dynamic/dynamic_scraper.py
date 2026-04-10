@@ -12,9 +12,16 @@ import time
 import random
 import os
 import argparse
+import sys
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--output", help = "Path to output file")
+parser = argparse.ArgumentParser(
+    description="Scrapes book data with automatic pagination and exports to CSV"
+)
+parser.add_argument(
+    "--output",
+    help="Path to output CSV file (default: test_files/clean_books.csv)",
+    metavar="FILE"
+)
 args = parser.parse_args()
 
 BASE_DIR = os.path.dirname(__file__)
@@ -133,13 +140,23 @@ def save_data(data):
             for row in data:
                 writer.writerow(row)
 
+        print(f"\n[SUCCESS] Data saved successfully")
+        print(f"  Books scraped: {len(data)}")
+        print(f"  Output: {output_path}")
+
     except IOError:
         print("[ERROR] Failed to write file")
+        sys.exit(1)
 
 
 def main():
+    print("[INFO] Starting scraper with dynamic pagination...")
     raw_data = scrape_data()
+    print(f"[INFO] Scraped {len(raw_data)} books")
+    
     clean_data = process_data(raw_data)
+    print(f"[INFO] Filtered to {len(clean_data)} books")
+    
     save_data(clean_data)
 
 

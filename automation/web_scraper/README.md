@@ -1,6 +1,10 @@
 Web Scraper
 
-Scrapes books from books.toscrape.com, exports to CSV.
+Problem:
+Need book data from website for analysis.
+
+Solution:
+Scrapes books.toscrape.com, filters by rating and price, exports to CSV.
 
 Setup:
 

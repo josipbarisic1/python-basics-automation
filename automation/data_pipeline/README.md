@@ -1,6 +1,10 @@
 Book Data Pipeline
 
-Scrapes books, filters by input CSV, enriches with API data, exports to CSV.
+Problem:
+Need to scrape books, match against target list, enrich with user data - multiple manual steps.
+
+Solution:
+Full automated pipeline - scrapes, filters, matches, enriches, exports in one run.
 
 Structure:
 

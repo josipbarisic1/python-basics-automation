@@ -1,6 +1,10 @@
 CSV Cleaner
 
-Cleans messy CSV data.
+Problem:
+Messy CSV data with duplicates, inconsistent formatting, extra whitespace.
+
+Solution:
+Automated cleaning - removes duplicates, trims whitespace, standardizes to title case.
 
 Setup:
 

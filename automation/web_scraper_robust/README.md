@@ -1,6 +1,10 @@
 Robust Web Scraper
 
-Scrapes books with retries, headers, delays.
+Problem:
+Web scraping fails due to timeouts, blocks, or connection issues.
+
+Solution:
+Scrapes with retry logic, browser-like headers, delays - handles failures gracefully.
 
 Setup:
 

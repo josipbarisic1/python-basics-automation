@@ -1,6 +1,10 @@
 Dynamic Web Scraper
 
-Scrapes books with automatic pagination.
+Problem:
+Need to scrape all pages from a website, but don't know how many pages exist.
+
+Solution:
+Automatically follows pagination links, scrapes all pages until no more exist.
 
 Setup:
 

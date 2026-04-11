@@ -1,6 +1,10 @@
 Folder Monitor
 
-Monitors folder, auto-processes new CSVs.
+Problem:
+New CSV files arrive constantly - need automatic processing without manual intervention.
+
+Solution:
+Monitors folder continuously, detects new CSVs, cleans them automatically.
 
 Run:
 

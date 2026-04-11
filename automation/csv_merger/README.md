@@ -1,6 +1,10 @@
 CSV Merger
 
-Merges multiple monthly CSVs into one, sorted chronologically.
+Problem:
+Multiple monthly CSV files need to be combined into one chronological dataset.
+
+Solution:
+Automatically merges all monthly files, sorts chronologically, outputs single CSV.
 
 Run:
 

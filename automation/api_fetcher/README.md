@@ -1,6 +1,10 @@
 API Data Fetcher
 
-Fetches user data from API, exports to CSV.
+Problem:
+Need to fetch user data from API and convert to CSV for analysis.
+
+Solution:
+Fetches data from API, validates, handles errors, exports clean CSV.
 
 Setup:
 

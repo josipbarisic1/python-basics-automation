@@ -1,6 +1,10 @@
 CSV API Enricher
 
-Enriches CSV data by matching with API data.
+Problem:
+CSV data is incomplete - need to enrich with additional info from API.
+
+Solution:
+Matches CSV rows with API data by email, merges info, exports enriched dataset.
 
 Setup:
 

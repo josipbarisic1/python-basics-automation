@@ -1,6 +1,10 @@
 File Organizer
 
-Organizes files into subfolders by type.
+Problem:
+Messy folder with mixed file types - hard to find what you need.
+
+Solution:
+Automatically scans folder, sorts files by type into organized subfolders.
 
 Run:
 

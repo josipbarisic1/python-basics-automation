@@ -2,3 +2,5 @@ desktop.ini
 __pycache__/
 *.pyc
 automation/email_reporter/config.json
+automation/google_sheets_sync/service-account.json
+automation/google_sheets_sync/config.json

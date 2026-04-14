@@ -1,0 +1,4 @@
+{
+  "service_account_file": "service-account.json",
+  "sheet_id": "your-sheet-id-here"
+}

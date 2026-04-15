@@ -3,8 +3,19 @@ import json
 import os
 import logging
 import sys
+import argparse
 
 logger = logging.getLogger(__name__)
+
+parser = argparse.ArgumentParser(
+    description="Filters data by Department and creates a new sheet"
+)
+parser.add_argument(
+    "--department",
+    help="Department to filter (default: Engineering)",
+    metavar="TEXT"
+)
+args = parser.parse_args()
 
 def load_config(config_path=None):
     if config_path is None:
@@ -37,19 +48,63 @@ def read_data(worksheet):
     data = worksheet.get_all_records()
     return data
 
+def process_data(data, department):
+    filtered = [row for row in data if row['Department'] == department]
+    logger.info(f"Filtered to {len(filtered)} rows ({department} only)")
+    return filtered
+
+def write_data(worksheet, data, sheet_name="Processed"):
+    try:
+        spreadsheet = worksheet.spreadsheet
+        try:
+            target_sheet = spreadsheet.worksheet(sheet_name)
+            target_sheet.clear()
+        except gspread.exceptions.WorksheetNotFound:
+            target_sheet = spreadsheet.add_worksheet(
+                title=sheet_name, 
+                rows=100, 
+                cols=20
+            )
+        
+        if not data:
+            logger.warning("No data to write")
+            return
+        
+        headers = list(data[0].keys())
+        rows = [headers]
+        
+        for row in data:
+            rows.append([row[key] for key in headers])
+        
+        target_sheet.update(rows, 'A1')
+        logger.info(f"Wrote {len(data)} rows to sheet '{sheet_name}'")
+        
+    except Exception as e:
+        logger.error(f"Failed to write data: {e}")
+        sys.exit(1)
+
 def main():
     logging.basicConfig(
         level=logging.INFO,
         format='[%(levelname)s] %(message)s'
     )
+
+    department = args.department if args.department else "Engineering"
     
     config = load_config()
     worksheet = connect_to_sheet(config)
-    data = read_data(worksheet)
     
-    logger.info(f"[INFO] Read {len(data)} rows from Google Sheets")
-    for row in data[:3]:
-        print(row)
+    data = read_data(worksheet)
+    logger.info(f"Read {len(data)} rows from Google Sheets")
+    
+    filtered = process_data(data, department)
+    
+    output_sheet_name = f"{department} Only"
+    write_data(worksheet, filtered, output_sheet_name)
+    
+    print(f"\n[SUCCESS] Processed {len(filtered)} rows")
+    print(f"  Department: {department}")
+    print(f"  Output sheet: '{output_sheet_name}'")
 
 if __name__ == "__main__":
     main()

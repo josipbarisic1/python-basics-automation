@@ -4,3 +4,4 @@ __pycache__/
 automation/email_reporter/config.json
 automation/google_sheets_sync/service-account.json
 automation/google_sheets_sync/config.json
+automation/pdf_generator/config.json

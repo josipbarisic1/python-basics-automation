@@ -1,0 +1,10 @@
+{
+  "paths": {
+    "input": "test_files/sample_data.csv",
+    "output": "test_files/report.pdf"
+  },
+  "report": {
+    "title": "Your Report Title",
+    "author": "Your Name"
+  }
+}

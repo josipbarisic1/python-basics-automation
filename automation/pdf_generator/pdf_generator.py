@@ -8,8 +8,33 @@ import json
 import os
 import logging
 import sys
+import argparse
 
 logger = logging.getLogger(__name__)
+
+parser = argparse.ArgumentParser(
+    description="Generates PDF report from CSV data"
+)
+parser.add_argument(
+    "--input",
+    help="Path to input CSV file (default: from config.json)",
+    metavar="FILE"
+)
+parser.add_argument(
+    "--output",
+    help="Path to output PDF file (default: from config.json)",
+    metavar="FILE"
+)
+parser.add_argument(
+    "--title",
+    help="Report title (default: from config.json)",
+    metavar="TEXT"
+)
+args = parser.parse_args()
+
+if args.input and not os.path.exists(args.input):
+    print(f"[ERROR] Input file not found: {args.input}")
+    sys.exit(1)
 
 def load_config(config_path=None):
     if config_path is None:
@@ -40,12 +65,17 @@ def load_csv_data(csv_path):
         sys.exit(1)
 
 def generate_pdf(data, output_path, title, author):
-    doc = SimpleDocTemplate(output_path, pagesize=A4)
+    doc = SimpleDocTemplate(output_path, pagesize=A4, 
+                           title=title, author=author)
     elements = []
     styles = getSampleStyleSheet()
     
     title_para = Paragraph(f"<b>{title}</b>", styles['Title'])
     elements.append(title_para)
+    elements.append(Spacer(1, 0.1*inch))
+    
+    author_para = Paragraph(f"<i>by {author}</i>", styles['Normal'])
+    elements.append(author_para)
     elements.append(Spacer(1, 0.3*inch))
     
     summary = f"Total rows: {len(data)}"
@@ -84,14 +114,23 @@ def main():
     )
     
     config = load_config()
-    csv_path = config['paths']['input']
-    output_path = config['paths']['output']
+    
+    csv_path = args.input if args.input else config['paths']['input']
+    output_path = args.output if args.output else config['paths']['output']
+    title = args.title if args.title else config['report']['title']
+    author = config['report']['author']
+    
+    output_dir = os.path.dirname(output_path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
     
     data = load_csv_data(csv_path)
-    generate_pdf(data, output_path, config['report']['title'], config['report']['author'])
+    generate_pdf(data, output_path, title, author)
     
     print(f"\n[SUCCESS] PDF generated")
+    print(f"  Rows: {len(data)}")
     print(f"  Output: {output_path}")
+
 
 if __name__ == "__main__":
     main()

@@ -13,6 +13,8 @@ Setup:
 
 Run:
 
+Note: Run from the email_reporter/ directory.
+
 python email_reporter.py
 python email_reporter.py --help
 python email_reporter.py --input data.csv --subject "Weekly Report" --recipient client@example.com

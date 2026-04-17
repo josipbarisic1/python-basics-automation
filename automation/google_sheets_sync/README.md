@@ -29,6 +29,8 @@ pip install -r requirements.txt
 
 Run:
 
+Note: Run from the google_sheets_sync/ directory.
+
 python sheets_sync.py
 python sheets_sync.py --help
 python sheets_sync.py --department Sales

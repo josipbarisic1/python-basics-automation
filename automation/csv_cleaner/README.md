@@ -12,6 +12,8 @@ pip install -r requirements.txt
 
 Run:
 
+Note: Run from the csv_cleaner/ directory.
+
 python csv_cleaner.py
 python csv_cleaner.py --help
 python csv_cleaner.py --input messy.csv --output clean.csv

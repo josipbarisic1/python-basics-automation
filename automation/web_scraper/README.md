@@ -12,6 +12,8 @@ pip install -r requirements.txt
 
 Run:
 
+Note: Run from the web_scraper/ directory.
+
 python scraper_pipeline.py
 
 What it does:

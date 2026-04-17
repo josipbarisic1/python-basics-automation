@@ -8,6 +8,8 @@ Automatically merges all monthly files, sorts chronologically, outputs single CS
 
 Run:
 
+Note: Run from the csv_merger/ directory.
+
 python csv_merger.py
 python csv_merger.py --help
 python csv_merger.py --input folder/ --output merged.csv

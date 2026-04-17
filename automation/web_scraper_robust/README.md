@@ -12,6 +12,8 @@ pip install -r requirements.txt
 
 Run:
 
+Note: Run from the web_scraper_robust/ directory.
+
 python robust_scraper.py
 python robust_scraper.py --help
 python robust_scraper.py --output custom.csv

@@ -12,6 +12,8 @@ pip install -r requirements.txt
 
 Run:
 
+Note: Run from the web_scraper_dynamic/ directory.
+
 python dynamic_scraper.py
 python dynamic_scraper.py --help
 python dynamic_scraper.py --output custom.csv

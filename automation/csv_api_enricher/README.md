@@ -12,6 +12,8 @@ pip install -r requirements.txt
 
 Run:
 
+Note: Run from the csv_api_enricher/ directory.
+
 python csv_api_enricher.py
 python csv_api_enricher.py --help
 python csv_api_enricher.py --input basic.csv --output enriched.csv

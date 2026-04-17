@@ -12,6 +12,8 @@ pip install -r requirements.txt
 
 Run:
 
+Note: Run from the api_fetcher/ directory.
+
 python api_fetcher.py
 python api_fetcher.py --help
 python api_fetcher.py --output custom.csv --limit 5

@@ -1,30 +1,52 @@
-Python Basics & Automation
+# Python Automation Portfolio
 
-Learning Python automation through real projects.
+Automation scripts for data processing, web scraping, API integration, and reporting.
 
-Structure:
+## Featured Projects
 
-basics/
-Python fundamentals:
-- Day 1 - number loops
-- Day 2 - user list processing
-- Day 3 - file processing
-- Day 4 - CSV filtering
-- Day 5 - API requests + JSON
-- Day 6 - CSV + API enrichment
-- Day 7 - refactoring + error handling
+**Data Pipeline**  
+Full ETL pipeline - scrapes books, filters by criteria, enriches with API data.  
+[Data Pipeline](automation/data_pipeline/)
 
-automation/
-Real automation tools:
-- api_fetcher - API -> CSV
-- csv_cleaner - clean + dedupe
-- csv_merger - merge multiple CSVs
-- csv_api_enricher - enrich CSV with API
-- file_organizer - sort files by type
-- folder_monitor - auto-process new files
-- web_scraper - basic scraping
-- web_scraper_robust - scraper with retries
-- web_scraper_dynamic - scraper with pagination
-- data_pipeline - full scrape/filter/enrich pipeline
+**Email Reporter**  
+Generates CSV reports and sends them via email with attachments.  
+[Email Reporter](automation/email_reporter/)
 
-Each project has its own README and test files.
+**Google Sheets Sync**  
+Reads/writes Google Sheets data, filters and syncs automatically.  
+[Google Sheets Sync](automation/google_sheets_sync/)
+
+**PDF Generator**  
+Converts CSV data into formatted PDF reports.  
+[PDF Generator](automation/pdf_generator/)
+
+## All Projects
+
+**Data Processing**
+- [CSV Cleaner](automation/csv_cleaner/) - removes duplicates, standardizes formatting
+- [CSV Merger](automation/csv_merger/) - combines multiple CSVs chronologically
+- [CSV API Enricher](automation/csv_api_enricher/) - enriches CSV with API data
+
+**Web Scraping**
+- [Web Scraper](automation/web_scraper/) - basic scraping
+- [Robust Web Scraper](automation/web_scraper_robust/) - retry logic, headers, delays
+- [Dynamic Web Scraper](automation/web_scraper_dynamic/) - automatic pagination
+
+**API Integration**
+- [API Fetcher](automation/api_fetcher/) - fetch and export API data
+- [Data Pipeline](automation/data_pipeline/) - full scrape/filter/enrich pipeline
+- [Google Sheets Sync](automation/google_sheets_sync/) - Google Sheets integration
+
+**Automation**
+- [Email Reporter](automation/email_reporter/) - automated email reports
+- [PDF Generator](automation/pdf_generator/) - CSV to PDF conversion
+- [File Organizer](automation/file_organizer/) - sorts files by type
+- [Folder Monitor](automation/folder_monitor/) - auto-processes new files
+
+## Tech Stack
+
+Python 3 | requests | beautifulsoup4 | smtplib | gspread | reportlab
+
+## Setup
+
+Each project has its own README with setup instructions.

@@ -1,39 +1,54 @@
 Python Automation Scripts
 
-Collection of automation tools.
+Collection of automation tools for data processing, web scraping, API integration, and reporting.
 
+## Data Processing
 
-Projects:
+**csv_cleaner**  
+Cleans CSV data - removes duplicates, standardizes formatting.
 
-- api_fetcher/
-Fetches data from APIs, saves to CSV.
+**csv_merger**  
+Merges multiple CSV files chronologically.
 
-- csv_cleaner/
-Cleans CSV data, removes duplicates.
-
-- csv_merger/
-Merges multiple CSVs into one.
-
-- csv_api_enricher/
+**csv_api_enricher**  
 Enriches CSV data with API info.
 
-- file_organizer/
-Organizes files by type into folders.
+## Web Scraping
 
-- folder_monitor/
-Watches folder, auto-processes new CSVs.
-
-- web_scraper/
+**web_scraper**  
 Basic web scraping.
 
-- web_scraper_robust/
-Scraper with retries, headers, delays.
+**web_scraper_robust**  
+Scraper with retry logic, headers, delays.
 
-- web_scraper_dynamic/
+**web_scraper_dynamic**  
 Scraper with automatic pagination.
 
-- data_pipeline/
+## API Integration
+
+**api_fetcher**  
+Fetches data from APIs, exports to CSV.
+
+**data_pipeline**  
 Full pipeline: scrape -> filter -> enrich -> export.
 
+**google_sheets_sync**  
+Google Sheets integration - read/write/filter.
 
-Each folder has its own README and test files.
+## Automation & Reporting
+
+**email_reporter**  
+Automated email reports with CSV attachments.
+
+**pdf_generator**  
+Converts CSV data to formatted PDF reports.
+
+**file_organizer**  
+Sorts files by type into folders.
+
+**folder_monitor**  
+Monitors folder, auto-processes new CSV files.
+
+---
+
+Each project has its own README with setup instructions and usage examples.

@@ -1,26 +1,29 @@
-File Organizer
+# File Organizer
 
-Problem:
+**Problem:**  
 Messy folder with mixed file types - hard to find what you need.
 
-Solution:
+**Solution:**  
 Automatically scans folder, sorts files by type into organized subfolders.
 
-Run:
+## Run
 
-python file_organizer.py
+`python file_organizer.py`
 
-What it does:
+## What it does
+
 - Scans directory
 - Detects file types
 - Moves files to categorized folders
 - Creates folders if needed
 - Shows files moved count
 
-Input:
-Place files in test_files/
+## Input
 
-Output folders:
-- test_files/text/
-- test_files/images/
-- test_files/csv/
+Place files in `test_files/`
+
+## Output folders
+
+- `test_files/text/`
+- `test_files/images/`
+- `test_files/csv/`

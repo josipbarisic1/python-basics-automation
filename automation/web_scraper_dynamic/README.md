@@ -1,27 +1,28 @@
-Dynamic Web Scraper
+# Dynamic Web Scraper
 
-Problem:
+**Problem:**  
 Need to scrape all pages from a website, but don't know how many pages exist.
 
-Solution:
+**Solution:**  
 Automatically follows pagination links, scrapes all pages until no more exist.
 
-Setup:
+## Setup
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
-Run:
+## Run
 
-Note: Run from the web_scraper_dynamic/ directory.
+**Note:** Run from the `web_scraper_dynamic/` directory.
 
-python dynamic_scraper.py
-python dynamic_scraper.py --help
-python dynamic_scraper.py --output custom.csv
+`python dynamic_scraper.py`
+`python dynamic_scraper.py --help`
+`python dynamic_scraper.py --output custom.csv`
 
-Options:
---output  output CSV (default: test_files/clean_books.csv)
+**Options:**
+`--output`  output CSV (default: `test_files/clean_books.csv`)
 
-What it does:
+## What it does
+
 - Scrapes all pages automatically
 - Follows "next page" links
 - Uses browser-like headers
@@ -33,5 +34,6 @@ What it does:
 - Exports to CSV
 - Shows books scraped count
 
-Output:
-test_files/clean_books.csv
+## Output
+
+`test_files/clean_books.csv`

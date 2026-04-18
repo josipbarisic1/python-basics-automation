@@ -1,27 +1,28 @@
-Robust Web Scraper
+# Robust Web Scraper
 
-Problem:
+**Problem:**  
 Web scraping fails due to timeouts, blocks, or connection issues.
 
-Solution:
+**Solution:**  
 Scrapes with retry logic, browser-like headers, delays - handles failures gracefully.
 
-Setup:
+## Setup
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
-Run:
+## Run
 
-Note: Run from the web_scraper_robust/ directory.
+**Note:** Run from the `web_scraper_robust/` directory.
 
-python robust_scraper.py
-python robust_scraper.py --help
-python robust_scraper.py --output custom.csv
+`python robust_scraper.py`
+`python robust_scraper.py --help`
+`python robust_scraper.py --output custom.csv`
 
-Options:
---output  output CSV (default: test_files/clean_books.csv)
+**Options:**
+`--output`  output CSV (default: `test_files/clean_books.csv`)
 
-What it does:
+## What it does
+
 - Scrapes multiple pages
 - Uses browser-like headers
 - Retries failed requests (3x)
@@ -32,5 +33,6 @@ What it does:
 - Exports to CSV
 - Shows books scraped count
 
-Output:
-test_files/clean_books.csv
+## Output
+
+`test_files/clean_books.csv`

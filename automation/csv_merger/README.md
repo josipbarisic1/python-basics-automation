@@ -1,25 +1,27 @@
-CSV Merger
+# CSV Merger
 
-Problem:
+**Problem:**  
 Multiple monthly CSV files need to be combined into one chronological dataset.
 
-Solution:
+**Solution:**  
 Automatically merges all monthly files, sorts chronologically, outputs single CSV.
 
-Run:
+## Run
 
-Note: Run from the csv_merger/ directory.
+**Note:** Run from the `csv_merger/` directory.
 
-python csv_merger.py
-python csv_merger.py --help
-python csv_merger.py --input folder/ --output merged.csv
+`python csv_merger.py`
+`python csv_merger.py --help`
+`python csv_merger.py --input folder/ --output merged.csv`
 
-Options:
---input   folder with CSVs (default: test_files/)
---output  merged CSV (default: test_files/merged_sales.csv)
+**Options:**
+`--input`   folder with CSVs (default: `test_files/`)
+`--output`  merged CSV (default: `test_files/merged_sales.csv`)
 
-Input format:
-Files named: sales_january.csv, sales_february.csv, etc.
+## Input format
 
-Output:
+Files named: `sales_january.csv`, `sales_february.csv`, etc.
+
+## Output
+
 Shows files merged and total rows processed.

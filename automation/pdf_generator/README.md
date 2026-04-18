@@ -1,49 +1,44 @@
-PDF Report Generator
+# PDF Report Generator
 
-Problem:
+**Problem:**  
 Need to convert CSV data into professional PDF reports - manual formatting is time-consuming.
 
-Solution:
+**Solution:**  
 Automated PDF generation - reads CSV, creates formatted PDF with table and summary.
 
-Setup:
+## Setup
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
-Run:
+## Run
 
-Note: Run from the pdf_generator/ directory.
+**Note:** Run from the `pdf_generator/` directory.
 
-python pdf_generator.py
-python pdf_generator.py --help
-python pdf_generator.py --input data.csv --output report.pdf --title "Company Sales Report"
+`python pdf_generator.py`
+`python pdf_generator.py --help`
+`python pdf_generator.py --input data.csv --output report.pdf --title "Company Sales Report"`
 
-Options:
---input   input CSV file (default: from config.json)
---output  output PDF file (default: from config.json)
---title   report title (default: from config.json)
+**Options:**
+`--input`   input CSV file (default: from `config.json`)
+`--output`  output PDF file (default: from `config.json`)
+`--title`   report title (default: from `config.json`)
 
-What it does:
+## What it does
+
 - Loads CSV data
 - Generates summary statistics
 - Creates formatted PDF table
 - Adds title and styling
 - Shows rows processed count
 
-Config:
+## Config
 
-Edit config.json:
-- paths: input CSV and output PDF paths
-- report: title and author
+Edit `config.json`:
+- `paths`: input CSV and output PDF paths
+- `report`: title and author
 
-PDF features:
-- Professional table formatting
-- Header row with grey background
-- Centered alignment
-- Grid borders
-- Summary statistics
+## Example use cases
 
-Example use cases:
 - Sales reports
 - Employee lists
 - Inventory reports

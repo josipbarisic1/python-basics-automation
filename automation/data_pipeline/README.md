@@ -1,43 +1,44 @@
-Book Data Pipeline
+# Book Data Pipeline
 
-Problem:
+**Problem:**  
 Need to scrape books, match against target list, enrich with user data - multiple manual steps.
 
-Solution:
+**Solution:**  
 Full automated pipeline - scrapes, filters, matches, enriches, exports in one run.
 
-Structure:
+## Structure
 
 Refactored into modules:
-- main.py -> CLI + orchestration
-- scraper.py -> scraping + pagination
-- processor.py -> cleaning + filtering
-- api.py -> API calls
-- enricher.py -> data enrichment
-- writer.py -> CSV I/O
-- config.py -> config loader
-- config.json -> all settings
-- book_data_pipeline.py -> old version (reference)
+- `main.py` -> CLI + orchestration
+- `scraper.py` -> scraping + pagination
+- `processor.py` -> cleaning + filtering
+- `api.py` -> API calls
+- `enricher.py` -> data enrichment
+- `writer.py` -> CSV I/O
+- `config.py` -> config loader
+- `config.json` -> all settings
+- `book_data_pipeline.py` -> old version (reference)
 
 Uses logging instead of print.
 
-Setup:
+## Setup
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
-Run:
+## Run
 
-Note: Must be run from the data_pipeline/ directory.
+**Note:** Run from the `data_pipeline/` directory.
 
-python main.py
-python main.py --help
-python main.py --input custom.csv --output result.csv
+`python main.py`
+`python main.py --help`
+`python main.py --input custom.csv --output result.csv`
 
-Options:
---input   input CSV path (default: from config.json)
---output  output CSV path (default: from config.json)
+**Options:**
+`--input`   input CSV path (default: from `config.json`)
+`--output`  output CSV path (default: from `config.json`)
 
-What it does:
+## What it does
+
 - Scrapes books.toscrape.com
 - Retries failed requests
 - Follows pagination automatically
@@ -48,15 +49,17 @@ What it does:
 - Saves to CSV
 - Shows books matched count
 
-Config:
+## Config
 
-Edit config.json to change:
+Edit `config.json` to change:
 - Scraper settings (URL, delays, retries, timeout)
 - Processor settings (max price)
 - API settings (URL, timeout)
 - Default paths
 
-Example output:
+## Example output
 
+```
 title,price,rating,available,user_name,email,company
 Book A,15.99,5,True,Leanne Graham,Sincere@april.biz,Romaguera-Crona
+```

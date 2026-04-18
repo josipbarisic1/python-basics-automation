@@ -8,9 +8,11 @@ Monitors folder continuously, detects new CSVs, cleans them automatically.
 
 ## Run
 
-`python monitoring_automation.py`
-`python monitoring_automation.py --help`
-`python monitoring_automation.py --input monitor/ --output clean/ --interval 10`
+```
+python monitoring_automation.py
+python monitoring_automation.py --help
+python monitoring_automation.py --input monitor/ --output clean/ --interval 10
+```
 
 **Options:**
 `--input`     monitored folder (default: `test_files/monitor/`)

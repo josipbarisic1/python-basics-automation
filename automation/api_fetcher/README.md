@@ -14,9 +14,11 @@ Fetches data from API, validates, handles errors, exports clean CSV.
 
 **Note:** Run from the `api_fetcher/` directory.
 
-`python api_fetcher.py`
-`python api_fetcher.py --help`
-`python api_fetcher.py --output custom.csv --limit 5`
+```
+python api_fetcher.py
+python api_fetcher.py --help
+python api_fetcher.py --output custom.csv --limit 5
+```
 
 **Options:**
 `--output`  output path (default: `test_files/users_api.csv`)

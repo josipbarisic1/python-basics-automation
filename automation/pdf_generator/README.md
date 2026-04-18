@@ -14,9 +14,11 @@ Automated PDF generation - reads CSV, creates formatted PDF with table and summa
 
 **Note:** Run from the `pdf_generator/` directory.
 
-`python pdf_generator.py`
-`python pdf_generator.py --help`
-`python pdf_generator.py --input data.csv --output report.pdf --title "Company Sales Report"`
+```
+python pdf_generator.py
+python pdf_generator.py --help
+python pdf_generator.py --input data.csv --output report.pdf --title "Company Sales Report"
+```
 
 **Options:**
 `--input`   input CSV file (default: from `config.json`)

@@ -14,9 +14,11 @@ Automated cleaning - removes duplicates, trims whitespace, standardizes to title
 
 **Note:** Run from the `csv_cleaner/` directory.
 
-`python csv_cleaner.py`
-`python csv_cleaner.py --help`
-`python csv_cleaner.py --input messy.csv --output clean.csv`
+```
+python csv_cleaner.py
+python csv_cleaner.py --help
+python csv_cleaner.py --input messy.csv --output clean.csv
+```
 
 **Options:**
 `--input`   input CSV (default: `test_files/users_messy.csv`)

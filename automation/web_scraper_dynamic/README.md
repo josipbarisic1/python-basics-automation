@@ -14,9 +14,11 @@ Automatically follows pagination links, scrapes all pages until no more exist.
 
 **Note:** Run from the `web_scraper_dynamic/` directory.
 
-`python dynamic_scraper.py`
-`python dynamic_scraper.py --help`
-`python dynamic_scraper.py --output custom.csv`
+```
+python dynamic_scraper.py
+python dynamic_scraper.py --help
+python dynamic_scraper.py --output custom.csv
+```
 
 **Options:**
 `--output`  output CSV (default: `test_files/clean_books.csv`)

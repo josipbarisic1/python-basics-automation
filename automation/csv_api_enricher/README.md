@@ -14,9 +14,11 @@ Matches CSV rows with API data by email, merges info, exports enriched dataset.
 
 **Note:** Run from the `csv_api_enricher/` directory.
 
-`python csv_api_enricher.py`
-`python csv_api_enricher.py --help`
-`python csv_api_enricher.py --input basic.csv --output enriched.csv`
+```
+python csv_api_enricher.py
+python csv_api_enricher.py --help
+python csv_api_enricher.py --input basic.csv --output enriched.csv
+```
 
 **Options:**
 `--input`   input CSV (default: `test_files/basic_user_info.csv`)

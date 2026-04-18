@@ -29,9 +29,11 @@ Uses logging instead of print.
 
 **Note:** Run from the `data_pipeline/` directory.
 
-`python main.py`
-`python main.py --help`
-`python main.py --input custom.csv --output result.csv`
+```
+python main.py
+python main.py --help
+python main.py --input custom.csv --output result.csv
+```
 
 **Options:**
 `--input`   input CSV path (default: from `config.json`)

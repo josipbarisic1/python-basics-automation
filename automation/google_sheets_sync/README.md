@@ -31,9 +31,11 @@ Automated sync - reads Google Sheets data, filters by department, writes to new 
 
 **Note:** Run from the `google_sheets_sync/` directory.
 
-`python sheets_sync.py`
-`python sheets_sync.py --help`
-`python sheets_sync.py --department Sales`
+```
+python sheets_sync.py
+python sheets_sync.py --help
+python sheets_sync.py --department Sales
+```
 
 **Options:**
 `--department`  department to filter (default: Engineering)

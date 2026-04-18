@@ -15,9 +15,11 @@ Generates summary report from CSV, sends email with attachment automatically.
 
 **Note:** Run from the `email_reporter/` directory.
 
-`python email_reporter.py`
-`python email_reporter.py --help`
-`python email_reporter.py --input data.csv --subject "Weekly Report" --recipient client@example.com`
+```
+python email_reporter.py
+python email_reporter.py --help
+python email_reporter.py --input data.csv --subject "Weekly Report" --recipient client@example.com
+```
 
 **Options:**
 `--input`      input CSV file (default: from `config.json`)
